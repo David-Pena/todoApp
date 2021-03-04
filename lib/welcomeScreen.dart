@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'loginScreen.dart';
+import 'registerScreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  Widget _buildScreen(Size size) {
+  Widget _buildScreen(Size size, context) {
     return Column(
       children: <Widget>[
         Container(
@@ -24,7 +26,14 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 child: Text("Sign In",
                     style: TextStyle(color: Color(0xffADD2EB), fontSize: 20.0)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginPageTD(),
+                    ),
+                  );
+                },
               ),
               Container(
                   margin: const EdgeInsets.only(top: 20.0),
@@ -43,7 +52,14 @@ class WelcomeScreen extends StatelessWidget {
                       child: Text("Sign Up",
                           style: TextStyle(
                               color: Color(0xff494D5F), fontSize: 20.0)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegisterPageTD(),
+                          ),
+                        );
+                      },
                     ),
                   )),
             ],
@@ -68,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
               Color(0xff22A1F8),
               Color(0xffADD2EB),
             ])),
-        child: _buildScreen(size),
+        child: _buildScreen(size, context),
       ),
     );
   }
